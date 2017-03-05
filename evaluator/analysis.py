@@ -28,7 +28,7 @@ def make_entity_pp_score(list):
     for s in list:
         sum += (entityTypes[s[0]]*s[1]) * (1 - counter*distribution)
         counter += 1
-    return sum / 10
+    return sum*10
 
 def get_entity_score(doc):
     tuple_list = make_entity_tuple_list(doc)

@@ -15,9 +15,8 @@ def index():
 def evaluate():
     if request.method == 'POST':
         mixtape = request.form['mixtape']
-        score = evaluate_mixtape(request.form['mixtape'])
-        # score = 0
-        return render_template('results.html', mixtape=mixtape, score=score)
+        (entity_score, sentiment_score, score) = evaluate_mixtape(request.form['mixtape'])
+        return render_template('results.html', mixtape=mixtape, entity_score=entity_score, sentiment_score=sentiment_score, score=score)
 
 @app.errorhandler(500)
 def server_error(e):
