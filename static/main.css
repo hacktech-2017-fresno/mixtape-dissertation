@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond|Quicksand:400,700");
+h1 {
+  font-family: "Quicksand", sans-serif;
+  color: #B2EBF2; }
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  background-color: #0277BD;
+  color: #B2EBF2; }
+
+/*# sourceMappingURL=main.css.map */
