@@ -5,7 +5,15 @@ h1 {
 
 body {
   font-family: "Cormorant Garamond", serif;
-  background-color: #0277BD;
+  background: url("img/bg.png");
   color: #B2EBF2; }
+
+.big-header {
+  font-size: 144pt; }
+
+.big-header-subtitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 36pt;
+  color: #b1ebf2; }
 
 /*# sourceMappingURL=main.css.map */

@@ -7,6 +7,16 @@ h1 {
 
 body {
   font-family: $font-body;
-  background-color: $color-bg;
+  background: $img-bg;
   color: $color-font;
+}
+
+.big-header {
+  font-size: 144pt;
+}
+
+.big-header-subtitle {
+  font-family: $font-main;
+  font-size: 36pt;
+  color: darken($color-font, 0.25);
 }

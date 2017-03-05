@@ -2,26 +2,25 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/static/main.css">
-    <title>Hello from Flask</title>
+    <title>lit.tape</title>
 </head>
 <body>
         <div class="container">
+            <h1 class="text-center big-header">lit.tape</h1>
+            <p class="text-center big-header-subtitle">hook me up, fam</p>
             <div class="row">
-                {% if name %}
-                <div class="xs-col-12 align-center">
-                    <h1>Hello {{ name }}!</h1>
-                    <p>Welcome! <3</p>
+                <div class="col-xs-12">
+                    <p>
+                        lit.tape is a humble service evaluating how sick your next mixtape is.
+                    </p>
                 </div>
-                {% else %}
-                <h1>Hello, World!</h1>
-                {% endif %}
             </div>
             <div class="row">
-                <div class="col-xs-6">
-                    <p>This is my hot lorem ipsum.</p>
-                </div>
-                <div class="col-xs-6">
-                    <p>Can you bask in utter glory?</p>
+                <div class="col-xs-12">
+                    <form action="submit" method="post">
+                        <textarea class='autoExpand' rows='3' data-min-rows='3' placeholder='Write your hip-hop poetry here.' name="mixtape"></textarea>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -29,3 +28,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
+
+<script>
+    // Applied globally on all textareas with the "autoExpand" class
+    $(document)
+        .one('focus.autoExpand', 'textarea.autoExpand', function(){
+            var savedValue = this.value;
+            this.value = '';
+            this.baseScrollHeight = this.scrollHeight;
+            this.value = savedValue;
+        })
+        .on('input.autoExpand', 'textarea.autoExpand', function(){
+            var minRows = this.getAttribute('data-min-rows')|0, rows;
+            this.rows = minRows;
+            rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
+            this.rows = minRows + rows;
+        });
+</script>

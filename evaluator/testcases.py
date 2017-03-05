@@ -1,6 +1,7 @@
 import unittest
 from language import get_annotated_text
 from analysis import get_entity_score, get_sentiment_score
+from main import evaluate_mixtape
 
 class TestScoreAnalysis(unittest.TestCase):
 
@@ -15,6 +16,16 @@ class TestScoreAnalysis(unittest.TestCase):
         doc = get_annotated_text(text)
         sentiment_score = get_sentiment_score(doc)
         self.assertIsInstance(sentiment_score, float)
+
+    def test_overall_score_with_bug(self):
+        text = "You should go die! And you should go die! This sucks very much."
+        score = evaluate_mixtape(text)
+        self.assertIsInstance(score, float)
+
+    def test_one_word_input(self):
+        text = "lolcats"
+        score = evaluate_mixtape(text)
+        self.assertIsInstance(score, float)
 
 if __name__ == '__main__':
     unittest.main()
