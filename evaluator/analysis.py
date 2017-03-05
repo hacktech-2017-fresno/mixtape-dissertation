@@ -23,6 +23,8 @@ def make_entity_tuple_list(doc):
 
 def make_entity_pp_score(list):
     sum = 0
+    if len(list) == 0:
+        return 0
     distribution = 1 / len(list)
     counter = 0
     for s in list:
@@ -50,6 +52,8 @@ def make_sentence_sentiment_tuple_list(doc, sort_by_magnitude=True):
 
 def make_sentiment_pp_score(list):
     sum = 0
+    if len(list) == 0:
+        return 0
     distribution = 1 / len(list)
     counter = 0
     for s in list:
